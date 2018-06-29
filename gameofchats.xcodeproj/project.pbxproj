@@ -12,6 +12,7 @@
 		3DB8D02020E6097300B1F447 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8D01E20E6097300B1F447 /* Main.storyboard */; };
 		3DB8D02220E6097500B1F447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8D02120E6097500B1F447 /* Assets.xcassets */; };
 		3DB8D02520E6097500B1F447 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8D02320E6097500B1F447 /* LaunchScreen.storyboard */; };
+		3DB8D02E20E60BCC00B1F447 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8D02D20E60BCC00B1F447 /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		3DB8D02120E6097500B1F447 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DB8D02420E6097500B1F447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3DB8D02620E6097500B1F447 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DB8D02D20E60BCC00B1F447 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,23 @@
 		3DB8D01920E6097300B1F447 /* gameofchats */ = {
 			isa = PBXGroup;
 			children = (
+				3DB8D02C20E60BA800B1F447 /* Controller */,
 				3DB8D01A20E6097300B1F447 /* AppDelegate.swift */,
-				3DB8D01C20E6097300B1F447 /* ViewController.swift */,
 				3DB8D01E20E6097300B1F447 /* Main.storyboard */,
 				3DB8D02120E6097500B1F447 /* Assets.xcassets */,
 				3DB8D02320E6097500B1F447 /* LaunchScreen.storyboard */,
 				3DB8D02620E6097500B1F447 /* Info.plist */,
 			);
 			path = gameofchats;
+			sourceTree = "<group>";
+		};
+		3DB8D02C20E60BA800B1F447 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3DB8D01C20E6097300B1F447 /* ViewController.swift */,
+				3DB8D02D20E60BCC00B1F447 /* LoginController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DB8D02E20E60BCC00B1F447 /* LoginController.swift in Sources */,
 				3DB8D01D20E6097300B1F447 /* ViewController.swift in Sources */,
 				3DB8D01B20E6097300B1F447 /* AppDelegate.swift in Sources */,
 			);
