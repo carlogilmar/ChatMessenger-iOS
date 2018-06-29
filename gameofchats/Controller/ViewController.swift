@@ -18,7 +18,12 @@ class ViewController: UITableViewController {
     }
 
     //TODO: Check this, is an error by objective-C declaration
-    @objc func handleLogout(){}
+    @objc func handleLogout(){
+        
+        let loginController = LoginController()
+        present(loginController, animated: true, completion: nil)
+        
+    }
 
 }
 
