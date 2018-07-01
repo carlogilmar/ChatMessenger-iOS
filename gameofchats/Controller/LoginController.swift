@@ -70,6 +70,7 @@ class LoginController: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "md")
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
