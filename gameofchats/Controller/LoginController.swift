@@ -14,7 +14,8 @@ class LoginController: UIViewController {
     let inputsContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = false
         return view
     }()
     
@@ -37,7 +38,7 @@ class LoginController: UIViewController {
         */
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40).isActive = true 
+        inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40).isActive = true
         inputsContainerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
