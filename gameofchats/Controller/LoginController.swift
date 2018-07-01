@@ -32,7 +32,11 @@ class LoginController: UIViewController {
     }()
     
     @objc func handleRegister() {
-        print("hola!")
+        guard emailTextField.text != "" , passwordTextField.text != ""
+            else {
+                print("Form not valid!")
+                return
+            }
     }
     
     let nameTextField: UITextField = {
