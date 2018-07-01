@@ -14,7 +14,8 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = .green
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",	 style: .plain, target: self, action: #selector(handleLogout))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Touch me!", style: .plain, target: self, action: #selector(touchme))
     }
 
     //TODO: Check this, is an error by objective-C declaration
@@ -23,6 +24,10 @@ class ViewController: UITableViewController {
         let loginController = LoginController()
         present(loginController, animated: true, completion: nil)
         
+    }
+    
+    @objc func touchme() {
+        print("Heeey! I'm the button!")
     }
 
 }
