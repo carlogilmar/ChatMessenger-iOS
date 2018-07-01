@@ -16,7 +16,18 @@ class LoginController: UIViewController {
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         view.isHidden = false
+        view.layer.cornerRadius = 5
+        view.layer.masksToBounds = true
         return view
+    }()
+    
+    let loginRegisterButton: UIButton = {
+        let button = UIButton(type: .system)
+        //button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
+        button.backgroundColor = .yellow
+        button.setTitle("Register!", for: .normal)
+        button.isHidden = false
+        return button
     }()
     
     override func viewDidLoad() {
@@ -24,18 +35,21 @@ class LoginController: UIViewController {
         view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
         
         view.addSubview(inputsContainerView)
+        view.addSubview(loginRegisterButton)
+        
         setupInputsContainerView()
-
+        setupLoginRegisterButton()
+    }
+    
+    func setupLoginRegisterButton(){
+        loginRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginRegisterButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
+        loginRegisterButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        loginRegisterButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     func setupInputsContainerView(){
         //Add the constrains
-       /*
-        inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: -24).isActive = true
-        inputsContainerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        */
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40).isActive = true
