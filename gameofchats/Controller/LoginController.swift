@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
    
@@ -37,6 +38,17 @@ class LoginController: UIViewController {
                 print("Form not valid!")
                 return
             }
+
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            print(user?.description)
+            
+        }
     }
     
     let nameTextField: UITextField = {
