@@ -66,15 +66,31 @@ class LoginController: UIViewController {
         return textField
     }()
     
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "md")
+        return imageView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
         
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
+        view.addSubview(profileImageView)
         
         setupInputsContainerView()
         setupLoginRegisterButton()
+        setupProfileImageView()
+    }
+    
+    func setupProfileImageView(){
+        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -10).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
     func setupInputsContainerView(){
