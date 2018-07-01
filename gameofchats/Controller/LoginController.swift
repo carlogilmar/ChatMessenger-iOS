@@ -22,11 +22,10 @@ class LoginController: UIViewController {
     }()
     
     let loginRegisterButton: UIButton = {
-        let button = UIButton(type: .system)
-        //button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
-        button.backgroundColor = .yellow
+        let button = UIButton(type: UIButtonType.system)
+        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Register!", for: .normal)
-        button.isHidden = false
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -41,19 +40,22 @@ class LoginController: UIViewController {
         setupLoginRegisterButton()
     }
     
-    func setupLoginRegisterButton(){
-        loginRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginRegisterButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
-        loginRegisterButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
-        loginRegisterButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-    }
-    
     func setupInputsContainerView(){
         //Add the constrains
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -40).isActive = true
         inputsContainerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    }
+    
+    func setupLoginRegisterButton(){
+        
+        loginRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginRegisterButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
+        loginRegisterButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        loginRegisterButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
