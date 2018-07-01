@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A85DE9C0C6F323810DFF21A /* Pods_gameofchats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573048ED8AB3008E5CE4AE42 /* Pods_gameofchats.framework */; };
+		3D343E9F20E8A737006A40F8 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D343E9E20E8A737006A40F8 /* FirebaseCore.framework */; };
 		3DB8D01B20E6097300B1F447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8D01A20E6097300B1F447 /* AppDelegate.swift */; };
 		3DB8D01D20E6097300B1F447 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8D01C20E6097300B1F447 /* ViewController.swift */; };
 		3DB8D02020E6097300B1F447 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8D01E20E6097300B1F447 /* Main.storyboard */; };
@@ -14,11 +16,11 @@
 		3DB8D02520E6097500B1F447 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8D02320E6097500B1F447 /* LaunchScreen.storyboard */; };
 		3DB8D02E20E60BCC00B1F447 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8D02D20E60BCC00B1F447 /* LoginController.swift */; };
 		3DE6FED320E8A40000D386B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DE6FED220E8A40000D386B3 /* GoogleService-Info.plist */; };
-		6FF16656A65DFEFE92E26314 /* Pods_gameofchats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573048ED8AB3008E5CE4AE42 /* Pods_gameofchats.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		040427C4C58EA6D593607CAE /* Pods-gameofchats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gameofchats.release.xcconfig"; path = "Pods/Target Support Files/Pods-gameofchats/Pods-gameofchats.release.xcconfig"; sourceTree = "<group>"; };
+		3D343E9E20E8A737006A40F8 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB8D01720E6097300B1F447 /* gameofchats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gameofchats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB8D01A20E6097300B1F447 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3DB8D01C20E6097300B1F447 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,7 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FF16656A65DFEFE92E26314 /* Pods_gameofchats.framework in Frameworks */,
+				3D343E9F20E8A737006A40F8 /* FirebaseCore.framework in Frameworks */,
+				2A85DE9C0C6F323810DFF21A /* Pods_gameofchats.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +100,7 @@
 		C5A8B02966E0BA82DF6E398B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D343E9E20E8A737006A40F8 /* FirebaseCore.framework */,
 				573048ED8AB3008E5CE4AE42 /* Pods_gameofchats.framework */,
 			);
 			name = Frameworks;
@@ -179,12 +183,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-gameofchats/Pods-gameofchats-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
