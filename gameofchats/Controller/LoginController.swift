@@ -33,21 +33,31 @@ class LoginController: UIViewController {
     }()
     
     @objc func handleRegister() {
-        guard emailTextField.text != "" , passwordTextField.text != ""
+        guard emailTextField.text != "" , passwordTextField.text != "", nameTextField.text != ""
             else {
                 print("Form not valid!")
                 return
             }
 
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            
             if error != nil {
                 print(error!)
                 return
             }
-            
-            print(user?.description)
-            
+            let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
+            let usersReference = ref.child("users")
+            let values: Dictionary = ["email": self.emailTextField.text!,
+                                      "password": self.passwordTextField.text!,
+                                      "name": self.nameTextField.text!]
+            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                if err != nil {
+                    print(err!)
+                    return
+                }
+                
+                print("Thats ok!!!>>>>>>>>>>>>>>>")
+            })
+
         }
     }
     
