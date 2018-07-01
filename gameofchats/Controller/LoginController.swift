@@ -27,8 +27,13 @@ class LoginController: UIViewController {
         button.setTitle("Register!", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
+        button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
         return button
     }()
+    
+    @objc func handleRegister() {
+        print("hola!")
+    }
     
     let nameTextField: UITextField = {
         let textField = UITextField()
