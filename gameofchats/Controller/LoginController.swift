@@ -32,39 +32,6 @@ class LoginController: UIViewController {
         return button
     }()
     
-    @objc func handleRegister() {
-        guard emailTextField.text != "" , passwordTextField.text != "", nameTextField.text != ""
-            else {
-                print("Form not valid!")
-                return
-            }
-
-        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
-            
-            if error != nil {
-                print(error!)
-                return
-            }
-            
-            let uuid = UUID().uuidString
-
-            let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
-            let usersReference = ref.child("users").child(uuid)
-            let values: Dictionary = ["email": self.emailTextField.text!,
-                                      "password": self.passwordTextField.text!,
-                                      "name": self.nameTextField.text!]
-            
-            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                if err != nil {
-                    print(err!)
-                    return
-                }
-                print("Thats ok!!!>>>>>>>>>>>>>>> \(uuid)")
-            })
-
-        }
-    }
-    
     let nameTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Nombre"
@@ -109,6 +76,13 @@ class LoginController: UIViewController {
         return imageView
     }()
     
+    let loginRegisterSegmentedControl: UISegmentedControl = {
+        let segmentedControl = UISegmentedControl(items: ["Login", "Register"])
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.tintColor = UIColor.white
+        return segmentedControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
@@ -116,17 +90,59 @@ class LoginController: UIViewController {
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
+        view.addSubview(loginRegisterSegmentedControl)
         
         setupInputsContainerView()
         setupLoginRegisterButton()
         setupProfileImageView()
+        setupLoginRegisterSegmentedControl()
+    }
+    
+    func setupLoginRegisterSegmentedControl() {
+        loginRegisterSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginRegisterSegmentedControl.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -12).isActive = true
+        loginRegisterSegmentedControl.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        loginRegisterSegmentedControl.heightAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    
+    @objc func handleRegister() {
+        guard emailTextField.text != "" , passwordTextField.text != "", nameTextField.text != ""
+            else {
+                print("Form not valid!")
+                return
+        }
+        
+        Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            let uuid = UUID().uuidString
+            
+            let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
+            let usersReference = ref.child("users").child(uuid)
+            let values: Dictionary = ["email": self.emailTextField.text!,
+                                      "password": self.passwordTextField.text!,
+                                      "name": self.nameTextField.text!]
+            
+            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                if err != nil {
+                    print(err!)
+                    return
+                }
+                print("Thats ok!!!>>>>>>>>>>>>>>> \(uuid)")
+            })
+            
+        }
     }
     
     func setupProfileImageView(){
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -10).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -10).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
     func setupInputsContainerView(){
