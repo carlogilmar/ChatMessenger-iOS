@@ -18,8 +18,6 @@ class ViewController: UITableViewController {
         //let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
         //ref.updateChildValues(["someValue":123])
         
-        view.backgroundColor = .green
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",	 style: .plain, target: self, action: #selector(handleLogout))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Touch me!", style: .plain, target: self, action: #selector(touchme))
     }
