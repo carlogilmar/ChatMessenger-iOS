@@ -165,7 +165,9 @@ class LoginController: UIViewController {
                     return
                 }
                 print("Thats ok!!!>>>>>>>>>>>>>>> \(uuid)")
+                self.dismiss(animated: true, completion: nil)
             })
+            
             
         }
     }
