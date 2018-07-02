@@ -22,7 +22,7 @@ class ViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Touch me!", style: .plain, target: self, action: #selector(touchme))
         
         if Auth.auth().currentUser?.uid == nil {
-            handleLogout()
+            perform(#selector(handleLogout), with: nil, afterDelay: 0)
         } else {
            let currentUser = Auth.auth().currentUser?.uid
            print("Hay usuario")
