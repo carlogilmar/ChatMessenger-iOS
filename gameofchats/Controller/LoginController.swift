@@ -151,10 +151,10 @@ class LoginController: UIViewController {
                 return
             }
             
-            let uuid = UUID().uuidString
+            let uuid = Auth.auth().currentUser?.uid
             
             let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
-            let usersReference = ref.child("users").child(uuid)
+            let usersReference = ref.child("users").child(uuid!)
             let values: Dictionary = ["email": self.emailTextField.text!,
                                       "password": self.passwordTextField.text!,
                                       "name": self.nameTextField.text!]
@@ -164,7 +164,7 @@ class LoginController: UIViewController {
                     print(err!)
                     return
                 }
-                print("Thats ok!!!>>>>>>>>>>>>>>> \(uuid)")
+                print("Thats ok!!!>>>>>>>>>>>>>>> \(uuid!)")
                 self.dismiss(animated: true, completion: nil)
             })
             
