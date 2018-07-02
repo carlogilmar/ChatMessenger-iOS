@@ -25,7 +25,7 @@ class LoginController: UIViewController {
     let loginRegisterButton: UIButton = {
         let button = UIButton(type: UIButtonType.system)
         button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
-        button.setTitle("Register!", for: .normal)
+        button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
@@ -87,6 +87,8 @@ class LoginController: UIViewController {
     
     @objc func handleLoginRegisterChange(){
      print(loginRegisterSegmentedControl.selectedSegmentIndex)
+        let title = loginRegisterSegmentedControl.titleForSegment(at: loginRegisterSegmentedControl.selectedSegmentIndex)
+        loginRegisterButton.setTitle(title, for: .normal)
     }
     
     override func viewDidLoad() {
