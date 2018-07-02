@@ -20,6 +20,14 @@ class ViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",	 style: .plain, target: self, action: #selector(handleLogout))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Touch me!", style: .plain, target: self, action: #selector(touchme))
+        
+        if Auth.auth().currentUser?.uid == nil {
+            handleLogout()
+        } else {
+           let currentUser = Auth.auth().currentUser?.uid
+           print("Hay usuario")
+           print(currentUser!)
+        }
     }
 
     //TODO: Check this, is an error by objective-C declaration
