@@ -33,6 +33,13 @@ class ViewController: UITableViewController {
     //TODO: Check this, is an error by objective-C declaration
     @objc func handleLogout(){
         
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
         let loginController = LoginController()
         present(loginController, animated: true, completion: nil)
         
