@@ -99,9 +99,10 @@ class LoginController: UIViewController {
      */
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
         
+        super.viewDidLoad()
+        
+        view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
@@ -116,6 +117,10 @@ class LoginController: UIViewController {
     /*
      *  handlers functions @objc
      */
+    
+    @objc func doneButtonAction(){
+        self.view.endEditing(true)
+    }
    
     @objc func handleLoginRegisterChange(){
         print(loginRegisterSegmentedControl.selectedSegmentIndex)
@@ -220,6 +225,18 @@ class LoginController: UIViewController {
     }
     
     func setupInputsContainerView(){
+        
+        /* editing bar for hide the keyboard */
+        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem:    .flexibleSpace, target: nil, action: nil)
+        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
+        toolbar.setItems([flexSpace, doneBtn], animated: false)
+        toolbar.sizeToFit()
+        nameTextField.inputAccessoryView = toolbar
+        emailTextField.inputAccessoryView = toolbar
+        passwordTextField.inputAccessoryView = toolbar
+        /*--------------------*/
+        
         //Add the constrains for the main view
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
