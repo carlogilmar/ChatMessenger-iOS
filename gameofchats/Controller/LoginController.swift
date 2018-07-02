@@ -148,7 +148,9 @@ class LoginController: UIViewController {
     @objc func handleLogin(){
         guard emailTextField.text != "" , passwordTextField.text != ""
             else {
-                print("Form not valid!")
+                let invalidFormAlert = UIAlertController(title: " Login FAIL!!!", message: "Llena los campos solicitados 😎", preferredStyle: UIAlertControllerStyle.alert)
+                invalidFormAlert.addAction(UIAlertAction(title: "OKAS", style: UIAlertActionStyle.default, handler: nil))
+                self.present(invalidFormAlert, animated: true, completion: nil)
                 return
         }
         print("Handle login!!!!")
@@ -164,6 +166,9 @@ class LoginController: UIViewController {
     @objc func handleRegister() {
         guard emailTextField.text != "" , passwordTextField.text != "", nameTextField.text != ""
             else {
+                let invalidFormAlert = UIAlertController(title: " Register FAIL!!!", message: "Llena los campos solicitados 😎", preferredStyle: UIAlertControllerStyle.alert)
+                invalidFormAlert.addAction(UIAlertAction(title: "Va de nuez!", style: UIAlertActionStyle.default, handler: nil))
+                self.present(invalidFormAlert, animated: true, completion: nil)
                 print("Form not valid!")
                 return
         }
