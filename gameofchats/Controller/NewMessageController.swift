@@ -12,6 +12,7 @@ import Firebase
 class NewMessageController: UITableViewController {
     
     let cellId = "cellId"
+    let users:[User] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,12 @@ class NewMessageController: UITableViewController {
     func fetchUsers(){
         let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
         ref.child("users").observe(.childAdded, with:  {(snapshot) in
-            print(snapshot)
+            if let userStored = snapshot.value as? [String: String] {
+                let user = User()
+                user.email = userStored["email"]
+                user.name = userStored["name"]
+                print(user.name!, user.email!)
+            }
         }, withCancel: nil)
     }
 
