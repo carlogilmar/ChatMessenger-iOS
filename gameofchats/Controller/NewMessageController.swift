@@ -12,11 +12,12 @@ import Firebase
 class NewMessageController: UITableViewController {
     
     let cellId = "cellId"
-    let users:[User] = []
+    var users:[User] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissNewMessageController))
+        navigationItem.title = "Users!"
         fetchUsers()
     }
     
@@ -28,6 +29,12 @@ class NewMessageController: UITableViewController {
                 user.email = userStored["email"]
                 user.name = userStored["name"]
                 print(user.name!, user.email!)
+                self.users.append(user)
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
             }
         }, withCancel: nil)
     }
@@ -37,12 +44,14 @@ class NewMessageController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return users.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
-        cell.textLabel?.text = "Dummy Text!"
+        let user = users[indexPath.row]
+        cell.textLabel?.text = user.name
+        cell.detailTextLabel?.text = user.email
         return cell
     }
 }
