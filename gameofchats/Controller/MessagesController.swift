@@ -20,13 +20,29 @@ class MessagesController: UITableViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",	 style: .plain, target: self, action: #selector(handleLogout))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Touch me!", style: .plain, target: self, action: #selector(touchme))
-        
+       checkIfUserIsLoggedIn()
+    }
+    
+    func checkIfUserIsLoggedIn(){
         if Auth.auth().currentUser?.uid == nil {
             perform(#selector(handleLogout), with: nil, afterDelay: 0)
         } else {
-           let currentUser = Auth.auth().currentUser?.uid
-           print("Hay usuario")
-           print(currentUser!)
+            
+            let currentUser = Auth.auth().currentUser
+            print("Hay usuario")
+            print(currentUser!.uid)
+            let userID = currentUser!.uid
+            let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
+            ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                let username = value?["name"] as? String ?? ""
+                let email = value?["email"] as? String ?? ""
+                print(username)
+                print(email)
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+            
         }
     }
 
