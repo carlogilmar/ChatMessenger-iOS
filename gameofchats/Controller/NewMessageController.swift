@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class NewMessageController: UITableViewController {
     
@@ -15,6 +16,14 @@ class NewMessageController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(dismissNewMessageController))
+        fetchUsers()
+    }
+    
+    func fetchUsers(){
+        let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
+        ref.child("users").observe(.childAdded, with:  {(snapshot) in
+            print(snapshot)
+        }, withCancel: nil)
     }
 
     @objc func dismissNewMessageController(){
