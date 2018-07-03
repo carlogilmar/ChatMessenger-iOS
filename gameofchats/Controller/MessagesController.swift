@@ -72,7 +72,10 @@ class MessagesController: UITableViewController {
     }
     
     @objc func touchme() {
-        print("Heeey! I'm the button!")
+        //print("Heeey! I'm the button!")
+        let newMessageController = NewMessageController()
+        let navController = UINavigationController(rootViewController: newMessageController)
+        present(navController, animated:true, completion: nil)
     }
 
 }
