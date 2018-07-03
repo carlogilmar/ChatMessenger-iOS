@@ -10,7 +10,7 @@
 		2A85DE9C0C6F323810DFF21A /* Pods_gameofchats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573048ED8AB3008E5CE4AE42 /* Pods_gameofchats.framework */; };
 		3D343E9F20E8A737006A40F8 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D343E9E20E8A737006A40F8 /* FirebaseCore.framework */; };
 		3DB8D01B20E6097300B1F447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8D01A20E6097300B1F447 /* AppDelegate.swift */; };
-		3DB8D01D20E6097300B1F447 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8D01C20E6097300B1F447 /* ViewController.swift */; };
+		3DB8D01D20E6097300B1F447 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8D01C20E6097300B1F447 /* MessagesController.swift */; };
 		3DB8D02020E6097300B1F447 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8D01E20E6097300B1F447 /* Main.storyboard */; };
 		3DB8D02220E6097500B1F447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8D02120E6097500B1F447 /* Assets.xcassets */; };
 		3DB8D02520E6097500B1F447 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DB8D02320E6097500B1F447 /* LaunchScreen.storyboard */; };
@@ -23,7 +23,7 @@
 		3D343E9E20E8A737006A40F8 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB8D01720E6097300B1F447 /* gameofchats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gameofchats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB8D01A20E6097300B1F447 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3DB8D01C20E6097300B1F447 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DB8D01C20E6097300B1F447 /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		3DB8D01F20E6097300B1F447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DB8D02120E6097500B1F447 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DB8D02420E6097500B1F447 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		3DB8D02C20E60BA800B1F447 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3DB8D01C20E6097300B1F447 /* ViewController.swift */,
+				3DB8D01C20E6097300B1F447 /* MessagesController.swift */,
 				3DB8D02D20E60BCC00B1F447 /* LoginController.swift */,
 			);
 			path = Controller;
@@ -226,7 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DB8D02E20E60BCC00B1F447 /* LoginController.swift in Sources */,
-				3DB8D01D20E6097300B1F447 /* ViewController.swift in Sources */,
+				3DB8D01D20E6097300B1F447 /* MessagesController.swift in Sources */,
 				3DB8D01B20E6097300B1F447 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
