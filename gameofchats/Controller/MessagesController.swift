@@ -34,11 +34,21 @@ class MessagesController: UITableViewController {
             let userID = currentUser!.uid
             let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
             ref.child("users").child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Way 1
+                /*
                 let value = snapshot.value as? NSDictionary
                 let username = value?["name"] as? String ?? ""
                 let email = value?["email"] as? String ?? ""
                 print(username)
                 print(email)
+                */
+                //Way 2
+                if let user = snapshot.value as? [String: AnyObject] {
+                 self.navigationItem.title = user["name"] as? String
+                 print(user["name"]!)
+                 print(user["email"]!)
+                }
+                
             }) { (error) in
                 print(error.localizedDescription)
             }
