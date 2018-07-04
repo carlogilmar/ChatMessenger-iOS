@@ -10,6 +10,7 @@
 		2A85DE9C0C6F323810DFF21A /* Pods_gameofchats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 573048ED8AB3008E5CE4AE42 /* Pods_gameofchats.framework */; };
 		3D1558F020EB4077004F684C /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1558EF20EB4077004F684C /* NewMessageController.swift */; };
 		3D1558F320EB4CD2004F684C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1558F220EB4CD2004F684C /* User.swift */; };
+		3D27FA2D20EC68F700A2D16C /* LoginController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D27FA2C20EC68F700A2D16C /* LoginController+handlers.swift */; };
 		3D343E9F20E8A737006A40F8 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D343E9E20E8A737006A40F8 /* FirebaseCore.framework */; };
 		3DB8D01B20E6097300B1F447 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8D01A20E6097300B1F447 /* AppDelegate.swift */; };
 		3DB8D01D20E6097300B1F447 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB8D01C20E6097300B1F447 /* MessagesController.swift */; };
@@ -24,6 +25,7 @@
 		040427C4C58EA6D593607CAE /* Pods-gameofchats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gameofchats.release.xcconfig"; path = "Pods/Target Support Files/Pods-gameofchats/Pods-gameofchats.release.xcconfig"; sourceTree = "<group>"; };
 		3D1558EF20EB4077004F684C /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		3D1558F220EB4CD2004F684C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3D27FA2C20EC68F700A2D16C /* LoginController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginController+handlers.swift"; sourceTree = "<group>"; };
 		3D343E9E20E8A737006A40F8 /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB8D01720E6097300B1F447 /* gameofchats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gameofchats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DB8D01A20E6097300B1F447 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				3DB8D01C20E6097300B1F447 /* MessagesController.swift */,
 				3DB8D02D20E60BCC00B1F447 /* LoginController.swift */,
 				3D1558EF20EB4077004F684C /* NewMessageController.swift */,
+				3D27FA2C20EC68F700A2D16C /* LoginController+handlers.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			files = (
 				3D1558F020EB4077004F684C /* NewMessageController.swift in Sources */,
 				3DB8D02E20E60BCC00B1F447 /* LoginController.swift in Sources */,
+				3D27FA2D20EC68F700A2D16C /* LoginController+handlers.swift in Sources */,
 				3DB8D01D20E6097300B1F447 /* MessagesController.swift in Sources */,
 				3D1558F320EB4CD2004F684C /* User.swift in Sources */,
 				3DB8D01B20E6097300B1F447 /* AppDelegate.swift in Sources */,

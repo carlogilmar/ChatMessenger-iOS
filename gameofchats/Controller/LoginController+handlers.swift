@@ -6,4 +6,13 @@
 //  Copyright © 2018 Carlo Gilmar. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension LoginController {
+    
+    @objc func handleSelectProfileImageView(){
+        print("Hello there!")
+        let picker = UIImagePickerController()
+        present(picker, animated: true, completion: nil)
+    }
+}
