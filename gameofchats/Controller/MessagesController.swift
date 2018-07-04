@@ -19,7 +19,7 @@ class MessagesController: UITableViewController {
         //ref.updateChildValues(["someValue":123])
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout",	 style: .plain, target: self, action: #selector(handleLogout))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Touch me!", style: .plain, target: self, action: #selector(touchme))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Users", style: .plain, target: self, action: #selector(touchme))
        checkIfUserIsLoggedIn()
     }
     

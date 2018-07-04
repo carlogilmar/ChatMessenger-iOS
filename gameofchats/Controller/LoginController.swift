@@ -82,8 +82,14 @@ class LoginController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "md")
         imageView.contentMode = .scaleAspectFill
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
+    
+    @objc func handleSelectProfileImageView(){
+        print("Hello there!")
+    }
     
     let loginRegisterSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Login", "Register"])
@@ -117,6 +123,8 @@ class LoginController: UIViewController {
     /*
      *  handlers functions @objc
      */
+    
+
     
     @objc func doneButtonAction(){
         self.view.endEditing(true)
