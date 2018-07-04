@@ -76,8 +76,10 @@ class LoginController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-    
-    let profileImageView: UIImageView = {
+    /*
+     * When a attribute reference itself we have to use LAZY VAR !!!!
+     */
+    lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "md")
@@ -86,11 +88,7 @@ class LoginController: UIViewController {
         imageView.isUserInteractionEnabled = true
         return imageView
     }()
-    
-    @objc func handleSelectProfileImageView(){
-        print("Hello there!")
-    }
-    
+
     let loginRegisterSegmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Login", "Register"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
