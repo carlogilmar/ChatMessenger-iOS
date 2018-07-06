@@ -30,10 +30,11 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
             
             let uuid = Auth.auth().currentUser?.uid
             
-            let storageRef = Storage.storage().reference().child("myImage.png")
+            let imageUuid = NSUUID().uuidString
+            let storageRef = Storage.storage().reference().child("\(imageUuid).png")
             let uploadData = UIImagePNGRepresentation(self.profileImageView.image!)
             // Upload the file to the path "images/rivers.jpg"
-            let uploadTask = storageRef.putData(uploadData!, metadata: nil) { (metadata, error) in
+            _ = storageRef.putData(uploadData!, metadata: nil) { (metadata, error) in
                 if error != nil {
                     print(error!)
                     return
