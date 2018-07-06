@@ -89,7 +89,7 @@ class NewMessageController: UITableViewController {
 
 class UserCell: UITableViewCell {
     
-    //Episode 6
+    //Episode 6 here!
     override func layoutSubviews() {
         super.layoutSubviews()
         textLabel?.frame = CGRect(x: 64, y: textLabel!.frame.origin.y - 2, width: textLabel!.frame.width, height: textLabel!.frame.height)
