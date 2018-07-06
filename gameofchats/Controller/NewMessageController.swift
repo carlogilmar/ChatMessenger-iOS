@@ -29,6 +29,7 @@ class NewMessageController: UITableViewController {
                 let user = User()
                 user.email = userStored["email"]
                 user.name = userStored["name"]
+                user.profileImageUrl = userStored["profileImageUrl"]
                 print(user.name!, user.email!)
                 self.users.append(user)
                 DispatchQueue.global(qos: .background).async {
@@ -58,6 +59,28 @@ class NewMessageController: UITableViewController {
         cell.detailTextLabel?.text = user.email
         
         cell.imageView?.image = UIImage(named: "md")
+        cell.imageView?.contentMode = .scaleAspectFill
+        
+        print("Downloading URL")
+        print(user.profileImageUrl)
+        if let profileImageUrl = user.profileImageUrl {
+            let url = URL(string: profileImageUrl)
+            print("The profile image is:")
+            print(profileImageUrl)
+            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error as Any)
+                    return
+                }
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.async {
+                        print("I'm here downloading the image!")
+                        print("profileImageUrl")
+                        cell.imageView?.image = UIImage(data: data!)
+                    }
+                }
+            }).resume()
+        }
 
         return cell
     }
