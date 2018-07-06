@@ -21,8 +21,6 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
                 return
         }
         
-
-
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             
             if error != nil {
@@ -32,6 +30,19 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
             
             let uuid = Auth.auth().currentUser?.uid
             
+            let storageRef = Storage.storage().reference().child("myImage.png")
+            let uploadData = UIImagePNGRepresentation(self.profileImageView.image!)
+            // Upload the file to the path "images/rivers.jpg"
+            let uploadTask = storageRef.putData(uploadData!, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    print(error)
+                    print("Image saved no saved!!!")
+                    return
+                }
+                print("Image saved!!!")
+                print(metadata)
+            }
+
             let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
             let usersReference = ref.child("users").child(uuid!)
             let values: Dictionary = ["email": self.emailTextField.text!,
@@ -44,18 +55,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
                     return
                 }
                 print("Thats ok!!!>>>>>>>>>>>>>>> \(uuid!)")
-                let storageRef = Storage.storage().reference().child("myImage.png")
-                let uploadData = UIImagePNGRepresentation(self.profileImageView.image!)
-                // Upload the file to the path "images/rivers.jpg"
-                let uploadTask = storageRef.putData(uploadData!, metadata: nil) { (metadata, error) in
-                    if error != nil {
-                        print(error)
-                        print("Image saved no saved!!!")
-                        return
-                    }
-                    print("Image saved!!!")
-                    print(metadata)
-                }
+
                 self.dismiss(animated: true, completion: nil)
             })
             
