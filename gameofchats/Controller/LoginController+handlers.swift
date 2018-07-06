@@ -35,32 +35,39 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
             // Upload the file to the path "images/rivers.jpg"
             let uploadTask = storageRef.putData(uploadData!, metadata: nil) { (metadata, error) in
                 if error != nil {
-                    print(error)
-                    print("Image saved no saved!!!")
+                    print(error!)
                     return
                 }
-                print("Image saved!!!")
-                print(metadata)
+                
+                storageRef.downloadURL(completion: { (url, error) in
+                    if let profileUrl = url?.absoluteString {
+                        let values = ["email": self.emailTextField.text!,
+                                                  "password": self.passwordTextField.text!,
+                                                  "name": self.nameTextField.text!,
+                                                  "profileImageUrl": profileUrl]
+                        self.registerUserIntoDatabase(uid: uuid!, values: values as [String : AnyObject])
+                    }
+                })
+                /*
+                if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
+                    
+                }*/
             }
-
-            let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
-            let usersReference = ref.child("users").child(uuid!)
-            let values: Dictionary = ["email": self.emailTextField.text!,
-                                      "password": self.passwordTextField.text!,
-                                      "name": self.nameTextField.text!]
-            
-            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                if err != nil {
-                    print(err!)
-                    return
-                }
-                print("Thats ok!!!>>>>>>>>>>>>>>> \(uuid!)")
-
-                self.dismiss(animated: true, completion: nil)
-            })
-            
-            
         }
+    }
+    
+    private func registerUserIntoDatabase(uid:String, values:[String:AnyObject]) {
+        let ref = Database.database().reference(fromURL: "https://gameofchats-db1b4.firebaseio.com/")
+        let usersReference = ref.child("users").child(uid)
+        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+            if err != nil {
+                print(err!)
+                return
+            }
+            print("Thats ok!!!>>>>>>>>>>>>>>> \(uid)")
+            
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     @objc func handleSelectProfileImageView(){
